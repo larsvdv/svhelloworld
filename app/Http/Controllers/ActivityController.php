@@ -61,6 +61,16 @@ class ActivityController extends Controller
     }
 
     /**
+     * Display a listing of the resources for administrators.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('activity.create');
+    }
+
+    /**
      * Display a specified listing of the resources for administrators.
      *
      * @param int $id The id of the activity
