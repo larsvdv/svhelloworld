@@ -74,6 +74,11 @@ Route::group(['middleware' => ['auth', 'verified', 'account.profile.complete']],
             'uses' => 'ActivityController@show',
             'as' => 'show',
         ]);
+
+        route::get('create', [
+            'uses' => 'ActivityController@create',
+            'as' => 'create',
+        ]);
     });
 
     // Payments
