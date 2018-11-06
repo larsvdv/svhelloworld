@@ -74,12 +74,10 @@ Route::group(['middleware' => ['auth', 'verified', 'account.profile.complete']],
             'uses' => 'ActivityController@show',
             'as' => 'show',
         ]);
-
-        route::get('create', [
-            'uses' => 'ActivityController@create',
-            'as' => 'create',
-        ]);
     });
+
+    // Activity creation page
+    Route::get('activity/create', 'ActivityController@create')->name('activity.create');
 
     // Payments
     Route::group(['prefix' => 'betaling', 'as' => 'payment.'], function () {
