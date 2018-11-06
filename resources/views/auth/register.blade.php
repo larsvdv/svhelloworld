@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group {{ $errors->has('phone_number') ? 'has-error' : ''}}">
-                    <label for="phone_number" class="control-label col-sm-4">Telefoonnummer</label>
+                    <label for="phone_number" class="control-label col-sm-4">Telefoonnummer *</label>
                     <div class="col-sm-8">
                         <input type="text" name="phone_number" id="phone_number" value="{{ old('phone_number') }}" class="form-control">
                         {!! $errors->first('phone_number', '<p class="help-block">:message</p>') !!}
