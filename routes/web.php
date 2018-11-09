@@ -79,6 +79,9 @@ Route::group(['middleware' => ['auth', 'verified', 'account.profile.complete']],
     // Activity creation page
     Route::get('activity/create', 'ActivityController@create')->name('activity.create');
 
+    Route::post('activity/', 'ActivityController@store')->name('activity.store');
+
+
     // Payments
     Route::group(['prefix' => 'betaling', 'as' => 'payment.'], function () {
         Route::get('/', [
