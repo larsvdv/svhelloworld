@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Activity;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use App\ActivityEntry;
 
 class ActivityController extends Controller
@@ -82,5 +83,30 @@ class ActivityController extends Controller
         $activity_entries = ActivityEntry::where('activity_id', $id)->paginate(10);
 
         return view('activity.entries', compact('activity', 'activity_entries'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'event_name' => 'required|unique:activities,title|max:255',
+            'description' => 'required',
+            'available_from' => 'required',
+            'available_to' => 'required',
+            'starts_at' => 'required',
+            'ends_at' => 'required',
+        ]);
+
+        Activity::create([
+            'title' => request('event_name'),
+            'description' => request('description'),
+            'available_from' => request('available_from'),
+            'available_to' => request('available_to'),
+            'starts_at' => request('starts_at'),
+            'ends_at' => request('ends_at'),
+        ]);
+
+        flash('Evenement toegevoegd!', 'success');
+
+        return redirect(route('activity.index'));
     }
 }
