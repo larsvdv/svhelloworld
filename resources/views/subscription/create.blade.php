@@ -48,7 +48,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('phone_number', 'Telefoonnummer', ['class' => 'col-sm-4 control-label']) !!}
+                {!! Form::label('phone_number', 'Telefoonnummer *', ['class' => 'col-sm-4 control-label']) !!}
                 <div class="col-sm-8">
                     {!! Form::text('phone_number', $user->phone_number, ['readonly', 'class' => 'form-control']) !!}
                 </div>
