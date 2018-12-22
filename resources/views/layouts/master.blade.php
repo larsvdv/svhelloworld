@@ -27,18 +27,28 @@
             <div class="container-fluid">
                 <div class="container-inner">
                     <div class="top-bar-section top-bar-section-social">
-                        <ul class="social">
-                            <li>
-                                <a href="https://github.com/sv-helloworld" target="_blank">
-                                    <i class="fa fa-github-alt"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/svhelloworld/" target="_blank">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                        </ul>
+                    <ul class="social">
+					    <li>
+                            <a href="https://github.com/sv-helloworld" target="_blank">
+                                <i class="fa fa-github-alt"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/svhelloworld/" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/svhelloworld" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+												<li>
+                            <a href="https://www.instagram.com/s.v.helloworld/" target="_blank">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
                     </div><!--
                     --><div class="top-bar-section top-bar-section-navigation">
                         <div class="navigation">
