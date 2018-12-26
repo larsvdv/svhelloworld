@@ -1,9 +1,9 @@
 @extends('layouts.master')
-@section('title', 'Acitiviteiten weergeven')
+@section('title', 'Activiteiten weergeven')
 
 @section('content')
     @if ($activities->count())
-        <p>Dit is een overzicht van alle activieiten.</p>
+        <p>Dit is een overzicht van alle activiteiten.</p>
 
         <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
