@@ -11,6 +11,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Jrean\UserVerification\Traits\VerifiesUsers;
 use Jrean\UserVerification\Facades\UserVerification;
+use Notification;
+use App\Notifications\AdminNewUser;
 
 class RegisterController extends Controller
 {
@@ -120,7 +122,7 @@ class RegisterController extends Controller
 
         // Fire 'UserCreatedOrChanged' event
         event(new UserCreatedOrChanged($user));
-
+        Notification::route('mail', 'ronnievm20@outlook.com');
         return $user;
     }
 }
