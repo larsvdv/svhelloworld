@@ -15,13 +15,15 @@ class AdminNewUser extends Notification
     public $name_prefix = "";
     public $last_name;
     public $phone_number;
+    public $email;
 
-    public function __construct($first_name, $name_prefix, $last_name, $phone_number)
+    public function __construct($first_name, $name_prefix, $last_name, $phone_number, $email)
     {
         $this->first_name = $first_name;
         $this->name_prefix = $name_prefix;
         $this->last_name = $last_name;
         $this->phone_number = $phone_number;
+        $this->email = $email;
     }
 
     /**
@@ -47,6 +49,7 @@ class AdminNewUser extends Notification
                     ->line('Een nieuw lid heeft zich aangemeld voor de studievereniging')
                     ->line('Naam: ' . $this->first_name . ' ' . $this->name_prefix . ' ' . $this->last_name)
                     ->line('Telefoonnummer: ' . $this->phone_number)
+                    ->line('Email: ' . $this->email)
                     ->action('Gebruikers beheren', url('http://mijn.svhelloworld.nl/gebruikers'));
     }
 

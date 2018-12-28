@@ -123,7 +123,7 @@ class RegisterController extends Controller
         event(new UserCreatedOrChanged($user));
 
         $admin = User::where('email', 'meel0028@hz.nl')->first();
-        $admin->notify(new AdminNewUser($user['first_name'], $user['name_prefix'], $user['last_name'], $user['phone_number']));
+        $admin->notify(new AdminNewUser($user['first_name'], $user['name_prefix'], $user['last_name'], $user['phone_number'], $user['email']));
         return $user;
     }
 }
