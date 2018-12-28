@@ -124,7 +124,7 @@ class RegisterController extends Controller
 
         $admin = User::where('email', 'meel0028@hz.nl')->first();
 
-        $admin->notify(new AdminNewUser($data['first_name'], $data['last_name']));
+        $admin->notify(new AdminNewUser($data['first_name'], $data['name_prefix'], $data['last_name'], $data['phone_number']));
         return $user;
     }
 }

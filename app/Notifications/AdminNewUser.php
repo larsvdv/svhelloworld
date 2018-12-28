@@ -12,12 +12,16 @@ class AdminNewUser extends Notification
     use Queueable;
 
     public $first_name;
+    public $name_prefix = "";
     public $last_name;
+    public $phone_number;
 
-    public function __construct($first_name, $last_name)
+    public function __construct($first_name, $name_prefix, $last_name, $phone_number)
     {
         $this->first_name = $first_name;
+        $this->name_prefix = $name_prefix;
         $this->last_name = $last_name;
+        $this->phone_number = $phone_number;
     }
 
     /**
@@ -40,10 +44,10 @@ class AdminNewUser extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!')
-                    ->line($this->first_name . ' ' . $this->last_name);
+                    ->line('Een nieuw lid heeft zich aangemeld voor de studievereniging')
+                    ->line('Naam: ' . $this->first_name . ' ' . $this->name_prefix . ' ' . $this->last_name)
+                    ->line('Telefoonnummer: ' . $this->phone_number)
+                    ->action('Gebruikers beheren', url('http://mijn.svhelloworld.nl/gebruikers'));
     }
 
     /**
