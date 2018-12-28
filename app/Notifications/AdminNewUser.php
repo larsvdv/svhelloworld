@@ -11,14 +11,13 @@ class AdminNewUser extends Notification
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $first_name;
+    public $last_name;
+
+    public function __construct($first_name, $last_name)
     {
-        //
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
     }
 
     /**
@@ -43,7 +42,8 @@ class AdminNewUser extends Notification
         return (new MailMessage)
                     ->line('The introduction to the notification.')
                     ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Thank you for using our application!')
+                    ->line($this->first_name . ' ' . $this->last_name);
     }
 
     /**
