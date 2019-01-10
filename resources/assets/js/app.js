@@ -1,5 +1,8 @@
 $(document).ready( function () {
 
+    //set moment.js to sort dates in dataTables
+    $.fn.dataTable.moment('DD-MM-YYYY HH:mm');
+
     //language settings
     var dutch = {
         "sProcessing": "Bezig...",
@@ -36,6 +39,25 @@ $(document).ready( function () {
     $('#activities-entries-table').DataTable({
         language: dutch,
         "pageLength": 100
+    });
+
+    // /activiteit/aanmelding
+    $('#activities-entry-index-table').DataTable({
+        language: dutch,
+        "pageLength": 50,
+        "order": [[ 1, "desc" ]]
+    });
+
+    $('#user-members-table').DataTable({
+        language: dutch,
+        "pageLength": 50,
+        "order": [[ 1, "asc" ]]
+    });
+
+    $('#user-index-table').DataTable({
+        language: dutch,
+        "pageLength": 50,
+        "order": [[ 1, "asc" ]]
     });
 
 } );
