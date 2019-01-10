@@ -56,7 +56,7 @@ class ActivityController extends Controller
      */
     public function manage()
     {
-        $activities = Activity::paginate(10);
+        $activities = Activity::all();
 
         return view('activity.manage', compact('activities'));
     }

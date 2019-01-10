@@ -6,7 +6,7 @@
         <p>Dit is een overzicht van alle activiteiten.</p>
 
         <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
+            <table id="activities-table" class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Naam</th>
@@ -35,8 +35,6 @@
                 </tbody>
             </table>
         </div>
-
-        <div class="pagination-wrapper">{!! $activities->render() !!}</div>
     @else
         <p class="alert alert-info">Er zijn op dit moment geen activiteiten.</p>
     @endif
