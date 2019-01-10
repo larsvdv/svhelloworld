@@ -28,12 +28,10 @@ $(document).ready( function () {
         }
     };
 
-    $('#activities-table').DataTable({
+    $('#activity-manage-table').DataTable({
         language: dutch,
-        // "columnDefs": [
-        //     { "orderable": false, "targets": 2 }
-        // ],
-        "pageLength": 100
+        "pageLength": 100,
+        "order": []
     });
 
     $('#activities-entries-table').DataTable({
