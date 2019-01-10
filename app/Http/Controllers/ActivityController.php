@@ -80,7 +80,7 @@ class ActivityController extends Controller
     public function entries($id)
     {
         $activity = Activity::findOrFail($id);
-        $activity_entries = ActivityEntry::where('activity_id', $id)->paginate(10);
+        $activity_entries = ActivityEntry::where('activity_id', $id)->get();
 
         return view('activity.entries', compact('activity', 'activity_entries'));
     }
