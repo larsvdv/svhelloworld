@@ -25,6 +25,7 @@ var scripts = {
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/datatables.net/js/jquery.dataTables.min.js',
         'node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js',
+        'node_modules/moment/min/moment.min.js'
     ],
 };
 
