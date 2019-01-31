@@ -11,7 +11,7 @@
         @endif
     </p>
 
-    <p>Controlleer de gegevens in het onderstaande formulier goed! Gegevens kun je aanpassen bij <a href="{{ route('account.edit') }}" target="_blank">accountbeheer</a>.</p>
+    <p>Controleer de gegevens in het onderstaande formulier goed! Gegevens kun je aanpassen bij <a href="{{ route('account.edit') }}" target="_blank">accountbeheer</a>.</p>
 
     <div class="row">
         <div class="col-xs-12">
