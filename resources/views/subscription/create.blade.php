@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-group">
-                    {!! Form::label('name_prefix', 'Tussenvoegsel *', ['class' => 'col-sm-4 control-label']) !!}
+                    {!! Form::label('name_prefix', 'Tussenvoegsel', ['class' => 'col-sm-4 control-label']) !!}
                 <div class="col-sm-8">
                     {!! Form::text('name_prefix', $user->name_prefix, ['readonly', 'class' => 'form-control']) !!}
                 </div>
