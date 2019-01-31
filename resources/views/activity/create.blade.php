@@ -5,7 +5,7 @@
     <p>
         Formulier om een evenement aan te maken.<br>
         Let op: als het evenement gratis is vul dan 0.00 in.<br>
-        Wil je geen deelnemer limiet instellen? Laat dan het veld "Maxiamaal aantal leden" leeg.
+        Wil je geen deelnemer limiet instellen? Laat dan het veld "Maximaal aantal leden" leeg.
     </p>
 
     <div class="row">
