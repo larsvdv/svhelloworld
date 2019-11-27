@@ -14,20 +14,20 @@
     "dev": "gulp watch"
   },
   "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "datatables.net-bs": "^1.10.19",
+    "bootstrap-sass": "^3.4.1",
+    "datatables.net-bs": "^1.10.20",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.3.1",
-    "moment": "^2.23.0"
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean": "^0.3.2",
-    "gulp-concat": "^2.6.0",
-    "gulp-livereload": "^3.8.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8"
   }
 }
