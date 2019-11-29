@@ -91,14 +91,24 @@ class ActivityController extends Controller
                 $this->validate($request, [
                     'event_name' => 'required|unique:activities,title|max:255',
                     'description' => 'required',
-                    'event_price_member' => 'required|numeric',
-                    'event_price_non_member' => 'required|numeric',
+                    'event_price_member' => 'required|numeric|min:0|max:1000',
+                    'event_price_non_member' => 'required|numeric|max:1000',
                     'member_limit' => 'int',
-                    'available_from' => 'required',
-                    'available_to' => 'required',
-                    'starts_at' => 'required',
-                    'ends_at' => 'required',
+                    'available_from' => 'required|date',
+                    'available_to' => 'required|date',
+                    'starts_at_date' => 'required|date',
+                    'starts_at_time' => 'required|date_format:"H:i"',
+                    'ends_at_date' => 'required|date',
+                    'ends_at_time' => 'required|date_format:"H:i"',
                 ]);
+
+                $startsAtDate = request('starts_at_date');
+                $startsAtTime = request('starts_at_time');
+                $startsAtDateTime = date('Y-m-d H:i:s', strtotime("$startsAtDate $startsAtTime"));
+
+                $endsAtDate = request('ends_at_date');
+                $endsAtTime = request('ends_at_time');
+                $endsAtDateTime = date('Y-m-d H:i:s', strtotime("$endsAtDate $endsAtTime"));
 
                 $activity = Activity::create([
                     'title' => request('event_name'),
@@ -106,8 +116,8 @@ class ActivityController extends Controller
                     'member_limit' => request('member_limit'),
                     'available_from' => request('available_from'),
                     'available_to' => request('available_to'),
-                    'starts_at' => request('starts_at'),
-                    'ends_at' => request('ends_at'),
+                    'starts_at' => $startsAtDateTime,
+                    'ends_at' => $endsAtDateTime,
                 ]);
 
                 $activityPriceMember = ActivityPrice::create([
