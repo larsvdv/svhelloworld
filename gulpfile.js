@@ -94,11 +94,11 @@ gulp.task('clean_fonts', function() {
     ;
 });
 
-gulp.task('copy_fonts', ['clean_fonts'], function() {
+gulp.task('copy_fonts', gulp.series('clean_fonts', function() {
     return gulp.src(fonts)
     .pipe(gulp.dest('./public/fonts'))
     ;
-});
+}));
 
 gulp.task('watch', function() {
     livereload.listen({
@@ -106,17 +106,17 @@ gulp.task('watch', function() {
     });
 
     // Watch Blade files
-    gulp.watch('resources/views/**/*.blade.php', ['blade']);
+    gulp.watch('resources/views/**/*.blade.php', gulp.series('blade'));
 
     // Watch SASS and SCSS files
-    gulp.watch('resources/assets/sass/**/*.{sass,scss}', ['stylesheets_app']);
+    gulp.watch('resources/assets/sass/**/*.{sass,scss}', gulp.series('stylesheets_app'));
 
     // Watch JS files
-    gulp.watch(scripts.app, ['scripts_app']);
+    gulp.watch(scripts.app, gulp.series('scripts_app'));
 });
 
-gulp.task('vendor', ['scripts_vendor', 'stylesheets_vendor', 'copy_fonts']);
+gulp.task('vendor', gulp.series('scripts_vendor', 'stylesheets_vendor', 'copy_fonts'));
 
-gulp.task('build', ['scripts_vendor', 'scripts_app', 'stylesheets_app', 'stylesheets_vendor', 'copy_fonts']);
+gulp.task('build', gulp.series('scripts_vendor', 'scripts_app', 'stylesheets_app', 'stylesheets_vendor', 'copy_fonts'));
 
-gulp.task('default', ['build']);
+gulp.task('default', gulp.series('build'));
