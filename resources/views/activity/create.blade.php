@@ -75,27 +75,27 @@
                     </div>
                 </div>
 
-                <div class="form-group {{ $errors->has('starts_at') ? 'has-error' : ''}}">
+                <div class="form-group {{ $errors->has('starts_at_date') || $errors->has('starts_at_time') ? 'has-error' : ''}}">
                     <label for="starts_at" class="control-label col-sm-2">Evenement start *</label>
                     <div class="col-sm-4">
                         <input type="date" name="starts_at_date" id="starts_at_date" value="{{ old('starts_at_date') }}" class="form-control">
-                        {!! $errors->first('starts_at', '<p class="help-block">:message</p>') !!}
+                        {!! $errors->first('starts_at_date', '<p class="help-block">:message</p>') !!}
                     </div>
                     <div class="col-sm-2">
-                        <input type="time" name="starts_at_time" id="starts_at_time" class="form-control">
-                        {!! $errors->first('starts_at', '<p class="help-block">:message</p>') !!}
+                        <input type="time" name="starts_at_time" id="starts_at_time" class="form-control" value="{{ old('starts_at_time') }}">
+                        {!! $errors->first('starts_at_time', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
 
-                <div class="form-group {{ $errors->has('ends_at') ? 'has-error' : ''}}">
+                <div class="form-group {{ $errors->has('ends_at_date') || $errors->has('ends_at_time') ? 'has-error' : ''}}">
                     <label for="ends_at" class="control-label col-sm-2">Evenement eind *</label>
                     <div class="col-sm-4">
                         <input type="date" name="ends_at_date" id="ends_at_date" value="{{ old('ends_at_date') }}" class="form-control">
-                        {!! $errors->first('ends_at', '<p class="help-block">:message</p>') !!}
+                        {!! $errors->first('ends_at_date', '<p class="help-block">:message</p>') !!}
                     </div>
                     <div class="col-sm-2">
-                        <input type="time" name="ends_at_time" id="ends_at_time" class="form-control">
-                        {!! $errors->first('ends_at', '<p class="help-block">:message</p>') !!}
+                        <input type="time" name="ends_at_time" id="ends_at_time" class="form-control" value="{{ old('ends_at_time') }}">
+                        {!! $errors->first('ends_at_time', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
 
