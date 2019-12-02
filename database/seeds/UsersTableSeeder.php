@@ -23,6 +23,7 @@ class UsersTableSeeder extends Seeder
             'address' => 'Voorbeeldstraat 123',
             'zip_code' => '1234 AB',
             'city' => 'Voorbeeldstad',
+            'user_category_alias' => 'lid'
         ]);
 
         User::firstOrCreate([
@@ -36,6 +37,7 @@ class UsersTableSeeder extends Seeder
             'address' => 'Voorbeeldstraat 123',
             'zip_code' => '1234 AB',
             'city' => 'Voorbeeldstad',
+            'user_category_alias' => 'geen-lid'
         ]);
 
         User::firstOrCreate([
