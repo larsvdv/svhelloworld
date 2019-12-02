@@ -85,6 +85,8 @@ class PaymentController extends Controller
             return abort(404);
         }
 
+        //return view('payment.invoice', compact('payment'));
+
         $pdf = PDF::loadView('payment.invoice', compact('payment'));
 
         return $pdf->download(sprintf('factuur_%s.pdf', $payment->id));
@@ -112,7 +114,10 @@ class PaymentController extends Controller
         ];
 
         $mollie_payment = Mollie::api()->payments()->create([
-            'amount' => $payment->amount,
+            'amount' => [
+                'currency' => 'EUR',
+                'value' => $payment->amount,
+            ],
             'description' => sprintf('Nr: %d - %s', $payment->id, $payment->description),
             'redirectUrl' => route('payment.callback', $payment->id),
             'metadata' => $metadata,
@@ -120,7 +125,7 @@ class PaymentController extends Controller
 
         $payment->update(['payment_id' => $mollie_payment->id]);
 
-        return redirect($mollie_payment->getPaymentUrl());
+        return redirect($mollie_payment->getCheckoutUrl());
     }
 
     /**
@@ -169,13 +174,14 @@ class PaymentController extends Controller
             $payment = Payment::findOrFail($mollie_payment->metadata->payment_id);
             $payment->update([
                 'status' => Payment::STATUS_PAID,
-                'paid_at' => strtotime($mollie_payment->paidDatetime),
+                'paid_at' => strtotime($mollie_payment->createdAt),
             ]);
 
             flash('Bedankt! Je betaling is succesvol verwerkt.', 'success');
 
             $admin = User::where('email', 'voorzitter@svhelloworld.nl')->first();
             $admin->notify(new AdminNewUserPaid($user['first_name'], $user['name_prefix'], $user['last_name'], $user['phone_number'], $user['email']));
+
             return redirect(route('payment.show', $id));
         }
 
