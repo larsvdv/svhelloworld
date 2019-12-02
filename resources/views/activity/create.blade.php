@@ -82,7 +82,7 @@
                         {!! $errors->first('starts_at', '<p class="help-block">:message</p>') !!}
                     </div>
                     <div class="col-sm-2">
-                        <input type="time" name="starts_at_time" id="starts_at_time" class="form-control">
+                        <input type="time" name="starts_at_time" id="starts_at_time" class="form-control" value="{{ old('starts_at_time') }}">
                         {!! $errors->first('starts_at', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                         {!! $errors->first('ends_at', '<p class="help-block">:message</p>') !!}
                     </div>
                     <div class="col-sm-2">
-                        <input type="time" name="ends_at_time" id="ends_at_time" class="form-control">
+                        <input type="time" name="ends_at_time" id="ends_at_time" class="form-control" value="{{ old('ends_at_time') }}">
                         {!! $errors->first('ends_at', '<p class="help-block">:message</p>') !!}
                     </div>
                 </div>
