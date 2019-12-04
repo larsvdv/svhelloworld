@@ -72,7 +72,11 @@
             @if($activity_entry)
                 <a href="{{ route('activity_entry.show', $activity_entry->id) }}" class="btn btn-primary">Bekijk aanmelding</a>
             @else
-                <a href="{{ route('activity_entry.create', $activity->id) }}" class="btn btn-primary">Aanmelden</a>
+                @if($activity->member_limit && $activity->entries() < $activity->member_limit)
+                    <a href="{{ route('activity_entry.create', $activity->id) }}" class="btn btn-primary">Aanmelden</a>
+                @else
+                    <a disabled class="btn btn-danger">Aanmelden (vol)</a>
+                @endif
             @endif
         </div>
     </div>
