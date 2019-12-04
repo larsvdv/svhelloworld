@@ -7,7 +7,7 @@
         "php": "^7.2",
         "barryvdh/laravel-dompdf": "^0.8",
         "caouecs/laravel-lang": "~3.0",
-        "doctrine/dbal": "2.5.1",
+        "doctrine/dbal": "2.9.*",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.4",
         "jrean/laravel-user-verification": "^8.0",
