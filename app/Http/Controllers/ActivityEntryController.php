@@ -41,6 +41,13 @@ class ActivityEntryController extends Controller
 
         // Get the activity information
         $activity = Activity::findOrFail($id);
+
+        if ($activity->entries() >= $activity->member_limit) {
+            flash('Je kunt je niet aanmelden voor deze activiteit, omdat het maximale aantal deelnemers al bereikt is.', 'info');
+
+            return redirect(route('activity.show', $activity->id));
+        }
+
         $activity_entry = ActivityEntry::where([
             ['user_id', $user->id],
             ['activity_id', $activity->id],
