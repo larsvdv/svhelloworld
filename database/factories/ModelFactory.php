@@ -127,13 +127,3 @@ $factory->define(App\ActivityEntry::class, function (Faker\Generator $faker) {
         'activity_price_id' => $activity_price->id,
     ];
 });
-
-$factory->define(App\Payment::class, function(Faker\Generator $faker) {
-    return [
-        'user_id' => 1,
-        'amount' => 2.01,
-        'payable_id' => 2,
-        'paid_at' => $faker->date('Y-m-d'),
-        'description' => 'Factory product'
-    ];
-});
