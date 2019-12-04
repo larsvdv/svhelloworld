@@ -30,9 +30,15 @@
                         </tr>
                         @if(isset($activity->member_limit))
                             <tr>
-                                <td>Maximaal aantal plekken beschikbaar</td>
+                                <td>Totaal aantal plekken</td>
                                 <td>
                                     {{ $activity->member_limit }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Aantal plekken nog beschikbaar</td>
+                                <td>
+                                    {{ max($activity->member_limit - $activity->entries()->count(), 0) }}
                                 </td>
                             </tr>
                         @endif
