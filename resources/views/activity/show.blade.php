@@ -28,11 +28,17 @@
                                 @date($activity->available_from) t/m @date($activity->available_to)
                             </td>
                         </tr>
-                        @if($activity->member_limit)
+                        @if(isset($activity->member_limit))
                             <tr>
-                                <td>Maximaal aantal plekken beschikbaar</td>
+                                <td>Totaal aantal plekken</td>
                                 <td>
                                     {{ $activity->member_limit }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Aantal plekken nog beschikbaar</td>
+                                <td>
+                                    {{ max($activity->member_limit - $activity->entries()->count(), 0) }}
                                 </td>
                             </tr>
                         @endif
@@ -72,7 +78,7 @@
             @if($activity_entry)
                 <a href="{{ route('activity_entry.show', $activity_entry->id) }}" class="btn btn-primary">Bekijk aanmelding</a>
             @else
-                @if(!$activity->member_limit || $activity->entries() < $activity->member_limit)
+                @if(!isset($activity->member_limit) || $activity->entries()->count() < $activity->member_limit)
                     <a href="{{ route('activity_entry.create', $activity->id) }}" class="btn btn-primary">Aanmelden</a>
                 @else
                     <a disabled class="btn btn-danger">Aanmelden (vol)</a>
