@@ -97,14 +97,18 @@ section {
 }
 
 .navbar-brand {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 
 	h1, span {
 		background: url('../images/logo.png') no-repeat;
 		background-size: contain;
+		/*
+		width: 359px;
+		height: 75px;
+		*/
 		width: 324px;
-		height: 50px;
+		height: 75px;
 		text-indent: -9999px;
 		display: block;
 	}
@@ -155,7 +159,7 @@ section {
 
 	.navbar-brand {
 		h1, span {
-			background-image: url('../images/logo@2x.png');
+			background-image: url('../images/logo.png');
 		}
 	}
 

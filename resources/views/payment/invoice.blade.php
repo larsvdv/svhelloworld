@@ -31,7 +31,7 @@
                     </td>
                     <td width="40%">
                         <div class="margin">
-                            <img src="{{ asset('/images/logo@2x.png') }}" width="auto" height="40px" />
+                            <img src="{{ asset('/images/logo.png') }}" width="auto" height="50vw" />
                         </div>
 
                         <div class="margin">
