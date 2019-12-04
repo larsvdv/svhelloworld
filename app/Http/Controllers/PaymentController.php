@@ -146,7 +146,7 @@ class PaymentController extends Controller
             $payment = Payment::findOrFail($mollie_payment->metadata->payment_id);
             $payment->update([
                 'status' => Payment::STATUS_PAID,
-                'paid_at' => strtotime($mollie_payment->paidDatetime),
+                'paid_at' => strtotime($mollie_payment->paidAt),
             ]);
 
             event(new PaymentCompleted($payment));
