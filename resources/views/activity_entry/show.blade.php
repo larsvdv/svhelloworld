@@ -14,35 +14,35 @@
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
-                            <th colspan="2">Details over de aanmelding</th>
-                        </tr>
+                    <tr>
+                        <th colspan="2">Details over de aanmelding</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Prijs</td>
-                            @if($activity_entry->activity_price->amount > 0)
-                                <td>&euro; {{ $activity_entry->activity_price->amount }}</td>
-                            @else
-                                <td>Gratis</td>
-                            @endif
-                        </tr>
-                        @if($activity_entry)
-                            <tr>
-                                <td>Status aanmelding</td>
-                                <td>
-                                    @if ($activity_entry->confirmed())
-                                        <span class="label label-success">Aangemeld</span>
-                                    @else
-                                        <span class="label label-info">Nog niet bevestigd</span>
-                                    @endif
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Aangemeld op</td>
-                                <td>@datetime($activity_entry->created_at)</td>
-                            </tr>
+                    <tr>
+                        <td>Prijs</td>
+                        @if($activity_entry->activity_price->amount > 0)
+                            <td>&euro; {{ $activity_entry->activity_price->amount }}</td>
+                        @else
+                            <td>Gratis</td>
                         @endif
+                    </tr>
+                    @if($activity_entry)
+                        <tr>
+                            <td>Status aanmelding</td>
+                            <td>
+                                @if ($activity_entry->confirmed())
+                                    <span class="label label-success">Aangemeld</span>
+                                @else
+                                    <span class="label label-info">Nog niet bevestigd</span>
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Aangemeld op</td>
+                            <td>@datetime($activity_entry->created_at)</td>
+                        </tr>
+                    @endif
                     </tbody>
                 </table>
             </div>
@@ -55,16 +55,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Activiteit</td>
-                            <td>{{ $activity_entry->activity->title }}</td>
-                        </tr>
-                        <tr>
-                            <td>Datum en tijd</td>
-                            <td>
-                                @datetime($activity_entry->activity->starts_at) t/m @datetime($activity_entry->activity->ends_at)
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>Activiteit</td>
+                        <td>{{ $activity_entry->activity->title }}</td>
+                    </tr>
+                    <tr>
+                        <td>Datum en tijd</td>
+                        <td>
+                            @datetime($activity_entry->activity->starts_at) t/m @datetime($activity_entry->activity->ends_at)
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -85,23 +85,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($activity_entry->payments as $payment)
-                                <tr>
-                                    <td>{{ $payment->id }}</th>
-                                    <td>{{ $payment->description }}</td>
-                                    <td>{!! $payment->paid() ? '<span class="label label-success">Betaald</a>' : '<span class="label label-warning">Nog niet betaald</span>' !!}</td>
-                                    <td>
-                                        @if ($payment->paid())
-                                            @datetime($payment->paid_at)
-                                        @else
-                                            N.v.t.
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-xs">Bekijken</a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach($activity_entry->payments as $payment)
+                            <tr>
+                                <td>{{ $payment->id }}</th>
+                                <td>{{ $payment->description }}</td>
+                                <td>{!! $payment->paid() ? '<span class="label label-success">Betaald</a>' : '<span class="label label-warning">Nog niet betaald</span>' !!}</td>
+                                <td>
+                                    @if ($payment->paid())
+                                        @datetime($payment->paid_at)
+                                    @else
+                                        N.v.t.
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('payment.show', $payment->id) }}" class="btn btn-primary btn-xs">Bekijken</a>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -110,6 +110,13 @@
             @endif
 
             <a href="{{ route('activity_entry.index') }}" class="btn btn-default">Terug naar overzicht</a>
+            @if(!$activity_entry->confirmed())
+                <form action="{{ route('activity_entry.destroy', $activity_entry->id) }}" method="POST" style="display: inline-block">
+                    {{ method_field('DELETE') }}
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger">Afmelden</button>
+                </form>
+            @endif
             <a href="{{ route('activity.show', $activity_entry->activity->id) }}" class="btn btn-primary">Naar activiteit</a>
         </div>
     </div>
