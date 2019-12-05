@@ -62,6 +62,11 @@ Route::group(['middleware' => ['auth', 'verified', 'account.profile.complete']],
             'uses' => 'ActivityEntryController@store',
             'as' => 'store',
         ]);
+
+        Route::delete('aanmelden/{id}', [
+            'uses' => 'ActivityEntryController@destroy',
+            'as' => 'destroy',
+        ]);
     });
 
     Route::group(['prefix' => 'activiteit', 'as' => 'activity.'], function () {
