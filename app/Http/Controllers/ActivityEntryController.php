@@ -178,10 +178,24 @@ class ActivityEntryController extends Controller
         $user = Auth::user();
         $activity_entry = ActivityEntry::findOrFail($id);
 
-        if (! $user->can('view', $activity_entry)) {
+        if (!$user->can('view', $activity_entry)) {
             return abort(403);
         }
 
         return view('activity_entry.show', compact('activity_entry'));
+    }
+
+    /**
+     * Destroy the specified resource.
+     *
+     * @param $id
+     */
+    public function destroy($id) {
+        $activity_entry = ActivityEntry::findOrFail($id);
+        $activity_entry->delete();
+
+        flash(sprintf('Je hebt je afgemeld voor \'%s\'.', $activity_entry->activity->title));
+
+        return redirect(route('activity_entry.index'));
     }
 }
