@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Payment;
 use Auth;
 use App\User;
 use App\Activity;
@@ -192,6 +193,16 @@ class ActivityEntryController extends Controller
      */
     public function destroy($id) {
         $activity_entry = ActivityEntry::findOrFail($id);
+
+        // Get the open, corresponding payment
+        $payment = Payment::where('activity_entry_id', $id)
+            ->where('status', 'open')->first();
+
+        // If the open payment exists, delete it
+        if (!is_null($payment)) {
+            $payment->delete();
+        }
+
         $activity_entry->delete();
 
         flash(sprintf('Je hebt je afgemeld voor \'%s\'.', $activity_entry->activity->title));
