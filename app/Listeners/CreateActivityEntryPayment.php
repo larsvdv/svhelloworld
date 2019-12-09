@@ -30,6 +30,7 @@ class CreateActivityEntryPayment
         $payment = new Payment;
         $payment->amount = $event->amount;
         $payment->description = $event->description;
+        $payment->activity_entry_id = $event->activity_entry_id;
 
         $payment->user()->associate($event->user);
         $payment->save();
