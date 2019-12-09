@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->string('status');
             $table->string('refund_id')->unique();
             $table->decimal('refund_amount', 8, 2)->nullable();
+            $table->integer('activity_entry_id')->unsigned()->nullable();
 
             // User
             $table->integer('user_id')->unsigned();
