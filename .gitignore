@@ -9,3 +9,4 @@ Homestead.yaml
 .env
 .sass-cache/
 npm-debug.log
+/stats
