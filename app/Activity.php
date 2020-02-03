@@ -17,6 +17,8 @@ class Activity extends Model
     protected $fillable = [
         'title',
         'description',
+        'itp_value',
+        'member_limit',
         'available_from',
         'available_to',
         'starts_at',
