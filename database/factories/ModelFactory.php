@@ -99,6 +99,7 @@ $factory->define(App\Activity::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->word,
         'description' => $faker->sentence(10),
+        'itp_value' => 10.1,
         'member_limit' => 5,
         'available_from' => $faker->dateTimeBetween('-1 week', 'now'),
         'available_to' => $faker->dateTimeBetween('+1 weeks', '+2 weeks'),
