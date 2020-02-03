@@ -13,6 +13,7 @@
                         <th>Naam</th>
                         <th>Datum en tijd</th>
                         <th>Aanmeldperiode</th>
+                        <th>ITP-waarde</th>
                         <th>Acties</th>
                     </tr>
                 </thead>
@@ -27,6 +28,13 @@
                             </td>
                             <td>
                                 @date($activity->available_from) t/m @date($activity->available_to)
+                            </td>
+                            <td>
+                                @if(isset($activity->itp_value))
+                                    {{ $activity->itp_value }}
+                                @else
+                                    Onbekend
+                                @endif
                             </td>
                             <td>
                                 <a href="{{ route('activity.show', $activity->id) }}" class="btn btn-primary btn-xs">Bekijken</a>
