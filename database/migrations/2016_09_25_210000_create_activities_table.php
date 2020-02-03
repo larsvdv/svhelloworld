@@ -19,6 +19,7 @@ class CreateActivitiesTable extends Migration
             // General
             $table->string('title');
             $table->text('description');
+            $table->float('itp_value')->nullable();
 
             // Dates
             $table->date('apply_after');
