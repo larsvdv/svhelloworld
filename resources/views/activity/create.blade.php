@@ -29,6 +29,14 @@
                     </div>
                 </div>
 
+                <div class="form-group {{ $errors->has('itp_value') ? 'has-error' : ''}}">
+                    <label for="itp_value" class="control-label col-sm-2">ITP-waarde</label>
+                    <div class="col-sm-6">
+                        <input type="number" step="0.01" name="itp_value" id="itp_value" value="{{ old('itp_value') }}" class="form-control">
+                        {!! $errors->first('itp_value', '<p class="help-block">:message</p>') !!}
+                    </div>
+                </div>
+
                 <div class="form-group {{ $errors->has('event_price_member') ? 'has-error' : ''}}">
                     <label for="event_price_member" class="control-label col-sm-2">Prijs leden *</label>
                     <div class="col-sm-6">
