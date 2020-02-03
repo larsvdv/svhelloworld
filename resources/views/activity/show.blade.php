@@ -28,6 +28,16 @@
                                 @date($activity->available_from) t/m @date($activity->available_to)
                             </td>
                         </tr>
+                        <tr>
+                            <td>ITP-waarde</td>
+                            <td>
+                                @if(isset($activity->itp_value))
+                                    {{ $activity->itp_value }}
+                                @else
+                                    Onbekend
+                                @endif
+                            </td>
+                        </tr>
                         @if(isset($activity->member_limit))
                             <tr>
                                 <td>Totaal aantal plekken</td>

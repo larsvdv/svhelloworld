@@ -14,7 +14,7 @@ class AddLimitMembersToActivities extends Migration
     public function up()
     {
         Schema::table('activities', function($table) {
-            $table->integer('member_limit')->nullable()->after('description');
+            $table->integer('member_limit')->nullable()->after('itp_value');
         });
     }
 
