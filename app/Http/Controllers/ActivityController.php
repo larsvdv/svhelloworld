@@ -114,8 +114,8 @@ class ActivityController extends Controller
                 $activity = Activity::create([
                     'title' => request('event_name'),
                     'description' => request('description'),
-                    'itp_value' => request('itp_value'),
-                    'member_limit' => request('member_limit'),
+                    'itp_value' => (isset($activity->itp_value)) ? request('itp_value') : null,
+                    'member_limit' => (isset($activity->member_limit)) ? request('member_limit') : null,
                     'available_from' => request('available_from'),
                     'available_to' => request('available_to'),
                     'starts_at' => $startsAtDateTime,
