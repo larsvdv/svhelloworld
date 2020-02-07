@@ -30,11 +30,16 @@ class ActivityController extends Controller
             ['available_to', '>', $today],
         ])->get();
 
+        $finishedActivities = Activity::where([
+            ['available_to', '<', $today],
+        ])->get();
+
         return view(
             'activity.index',
             [
                 'availableActivities' => $availableActivities,
-                'upcomingActivities' => $upcomingActivities
+                'upcomingActivities' => $upcomingActivities,
+                'finishedActivities' => $finishedActivities
             ]
         );
     }
