@@ -20,12 +20,20 @@ class ActivityController extends Controller
     {
         $today = Carbon::today();
 
-        $activities = Activity::where([
+        $availableActivities = Activity::where([
             ['available_from', '<=', $today],
             ['available_to', '>=', $today],
         ])->get();
 
-        return view('activity.index', compact('activities'));
+        $unavailableActivities = Activity::where([
+            ['available_to', '<', $today],
+        ])->get();
+
+        return view(
+            'activity.index',
+            compact('availableActivities'),
+            compact('unavailableActivities')
+        );
     }
 
     /**
