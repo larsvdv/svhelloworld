@@ -25,14 +25,17 @@ class ActivityController extends Controller
             ['available_to', '>=', $today],
         ])->get();
 
-        $unavailableActivities = Activity::where([
-            ['available_to', '<', $today],
+        $upcomingActivities = Activity::where([
+            ['available_from', '>', $today],
+            ['available_to', '>', $today],
         ])->get();
 
         return view(
             'activity.index',
-            compact('availableActivities'),
-            compact('unavailableActivities')
+            [
+                'availableActivities' => $availableActivities,
+                'upcomingActivities' => $upcomingActivities
+            ]
         );
     }
 
