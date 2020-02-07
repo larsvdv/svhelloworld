@@ -7,8 +7,6 @@
 
         @if ($availableActivities->count())
             <h3>Beschikbare activiteiten</h3>
-
-            <!-- Available activities -->
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
@@ -51,7 +49,6 @@
 
         @if($upcomingActivities->count())
             <h3>Toekomstige activiteiten</h3>
-            <!-- Unavailable activities -->
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
@@ -94,7 +91,6 @@
 
         @if($finishedActivities->count())
             <h3>Afgelopen activiteiten</h3>
-            <!-- Unavailable activities -->
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
