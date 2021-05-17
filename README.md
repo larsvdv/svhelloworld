@@ -1,3 +1,5 @@
+![Image of SA HELLO-WORLD](https://github.com/larsvdv/svhelloworld/blob/dev/public/images/logo_en1.png)
+
 # prerequisites
 
 * Latest version of Xampp (https://www.apachefriends.org/index.html)
