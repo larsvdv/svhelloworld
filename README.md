@@ -1,9 +1,10 @@
 ![Image of SA HELLO-WORLD](https://github.com/larsvdv/svhelloworld/blob/dev/public/images/logo_en1.png)
 
-# prerequisites
+# Prerequisites
 
 * Latest version of Xampp (https://www.apachefriends.org/index.html)
 * Latest version of Composer (https://getcomposer.org/download/)
+* A command line tool like Git Bash (https://gitforwindows.org/)
 * An IDE of your choice. I'd recommend installing IntelliJ using your student licence (https://www.jetbrains.com/idea/download/#section=windows)
 
 
