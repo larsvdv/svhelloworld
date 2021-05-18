@@ -17,4 +17,5 @@
 * Create a database using Xampp's MySQL module. Open localhost/phpmyadmin in the browser, add a new database and give it a name to your liking.
 * In your local project, add the database name to the .env.example file in the project root folder. Save the file and either rename is to .env or save it as .env
 * Now run ```php artisan key:generate```
-* You should be able to open the website now via localhost.
+* And run ```php artisan migrate```
+* You should be able to open the website now via localhost, create an account and so on.
